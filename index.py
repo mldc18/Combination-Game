@@ -7,17 +7,19 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET','POST'])
 def home():
+    dict_cursor = db.cursor(MySQLdb.cursors.DictCursor)
     if request.method == 'POST':
         req = request.form
         namee = req['namee']
         timee = req['timee']
         scoree = req['scoree']
-        dict_cursor = db.cursor(MySQLdb.cursors.DictCursor)
-        dict_cursor.execute('INSERT INTO highscore (namee,scoree,timee) VALUES (%s, %s, %s)', (namee, scoree, timee+"s"))
+        dict_cursor.execute('INSERT INTO highscore (namee,scoree,timee) VALUES (%s, %s, %s)', (namee, scoree, timee))
         db.commit()
         dict_cursor.close()
         return "<script>window.location.href='/';</script>"
-    return render_template('threenum.html')
+    dict_cursor.execute("select * from highscore ORDER BY scoree ASC, timee ASC")
+    highscores = dict_cursor.fetchall()[:10]
+    return render_template('threenum.html', highscores=highscores)
 
 if __name__ == "__main__":
     app.run(debug=True)  

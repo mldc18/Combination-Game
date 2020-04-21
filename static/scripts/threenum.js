@@ -28,6 +28,7 @@ randomCombo();
 for (var i = 0; i < 3; i++) {
   $("#num" + i).prop("disabled", true);
 }
+$("#submit").prop("disabled", true);
 //this limits the input to 0-9 otherwise it returns false
 $("input").keydown(function () {
   if (this.value.length == 1 && event.keyCode > 47 && event.keyCode < 58)
@@ -47,9 +48,7 @@ $("#submit").on("click", function () {
 });
 //if button is clicked, boxes are now functional and a timer runs
 $("#starttime").on("click", function () {
-  for (var i = 0; i < 3; i++) {
-    $("#num" + i).prop("disabled", false);
-  }
+  enable();
   seconds = 0;
   x = setInterval(function () {
     seconds += 1;
@@ -57,6 +56,18 @@ $("#starttime").on("click", function () {
   }, 1000);
   $(this).prop("disabled", true);
 });
+
+$("#highscore").on("click", function () {
+  $("#highscores").modal("show");
+});
+
+function enable() {
+  for (var i = 0; i < 3; i++) {
+    $("#num" + i).prop("disabled", false);
+  }
+  $("#submit").prop("disabled", false);
+  $("#highscore").prop("disabled", true);
+}
 //determines the count, right position, and wrong position of user inputs
 //in the given combination
 function countMatch(count, right_place, wrong_place) {

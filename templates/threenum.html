@@ -63,9 +63,14 @@
           id="submit"
           class="mt-4 btn btn-md btn-dark"
         >submit combination</button>
+        <button
+          type="button"
+          id="highscore"
+          class="ml-2 mt-4 btn btn-md btn-warning"
+        >High Scores</button>
       </div>
     </div>
-    <div id="mod" class="modal fade border-0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div id="mod" class="modal fade border-0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content border-0">
           <div class="modal-header bg-danger">
@@ -93,6 +98,41 @@
               </div>
               <input class="form-control bg-danger text-white" type="submit" value="Save">
             </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="highscores" class="modal fade border-0" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content border-0">
+          <div class="modal-header bg-danger">
+            <h5 class="modal-title text-white" id="exampleModalLongTitle">High Scores</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Time</th>
+                  <th>Tries</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for h in highscores %}
+                  <tr>
+                    <td> {{ h["namee"] }} </td>
+                    <td> {{ h["timee"] }} seconds</td>
+                    <td> {{ h["scoree"] }} </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
