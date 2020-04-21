@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <title>Mind Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/threenum.css') }}"
+    />
+  </head>
+  <body>
+    <h1 id="tries" class="m-3">Trial: 1</h1>
+    <h1 id="timer" class="m-3">Time: 0s</h1>
+    <div class="container d-flex flex-column align-items-center">
+      <h1 id="what" class="mb-3">What is the Combination?</h1>
+      <table>
+        <tr>
+          <td class="text-center">
+            <input
+              id="num0"
+              class="text-center"
+              type="number"
+              min="0"
+              max="9"
+              placeholder="?"
+            />
+          </td>
+          <td class="text-center">
+            <input
+              id="num1"
+              class="text-center"
+              type="number"
+              min="0"
+              max="9"
+              placeholder="?" 
+            />
+          </td>
+          <td class="text-center">
+            <input
+              id="num2"
+              class="text-center"
+              type="number"
+              min="0"
+              max="9"
+              placeholder="?"
+            />
+          </td>
+        </tr>
+      </table>
+      <div class="d-flex">
+        <button
+          type="button"
+          id="starttime"
+          class="mr-2 mt-4 btn btn-md btn-warning"
+        >start game</button>
+        <button
+          type="button"
+          id="submit"
+          class="mt-4 btn btn-md btn-dark"
+        >submit combination</button>
+      </div>
+    </div>
+    <div id="mod" class="modal fade border-0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content border-0">
+          <div class="modal-header bg-danger">
+            <h5 class="modal-title text-white" id="exampleModalLabel">Enter your name below!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="/">
+              <div class="form-group">
+                <h3><label for="namee">Name:</label>
+                <input class="border-bottom border-dark" class="form-control" type="text" name="namee" required>
+                </h3>
+              </div>
+              <div class="form-group">
+                <h3><label for="scoree">Tries: </label>
+                <input id="trycount" class="border-bottom border-dark" class="form-control" type="text" name="scoree" readonly>
+                </h3>
+              </div>
+              <div class="form-group">
+                <h3><label for="timee">Time: </label>
+                <input id="timecount" class="border-bottom border-dark" class="form-control" type="text" name="timee" readonly>
+                </h3>
+              </div>
+              <input class="form-control bg-danger text-white" type="submit" value="Save">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{{ url_for('static', filename='scripts/threenum.js') }}"></script>
+  </body>
+</html>

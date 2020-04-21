@@ -1,0 +1,30 @@
+body {
+    font-family: 'Fredoka One', cursive;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+td {
+    height: 400px;
+    width: 400px;
+    border: 3px solid black;
+    font-size: 170px;
+}
+
+input {
+    width: 200px;
+    border: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]:disabled {
+    background: white;
+    color: red;
+}
