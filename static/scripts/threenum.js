@@ -6,15 +6,14 @@ var seconds = 0;
 var right_place = 0;
 var wrong_place = 0;
 var thesame = false;
-var first_number, second_number, third_number;
 var x;
 
 // generates the winning combination and stores it as an array in var combo
 function randomCombo() {
   do {
-    first_number = Math.floor(Math.random() * 10);
-    second_number = Math.floor(Math.random() * 10);
-    third_number = Math.floor(Math.random() * 10);
+    var first_number = Math.floor(Math.random() * 10);
+    var second_number = Math.floor(Math.random() * 10);
+    var third_number = Math.floor(Math.random() * 10);
   } while (
     first_number == second_number ||
     first_number == third_number ||
